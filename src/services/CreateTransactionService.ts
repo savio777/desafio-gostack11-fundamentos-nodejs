@@ -20,10 +20,8 @@ class CreateTransactionService {
 
     const balance = this.transactionsRepository.getBalance();
 
-    if (type === 'outcome') {
-      if (value > balance.total) {
-        throw Error('there is no balance');
-      }
+    if (type === 'outcome' && value > balance.total) {
+      throw Error('there is no balance');
     }
 
     const transaction = this.transactionsRepository.create(newTransaction);
