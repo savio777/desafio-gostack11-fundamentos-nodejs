@@ -24,11 +24,7 @@ class TransactionsRepository {
     this.transactions.map(item => {
       if (item.type === 'income') {
         income += item.value;
-      }
-    });
-
-    this.transactions.map(item => {
-      if (item.type === 'outcome') {
+      } else if (item.type === 'outcome') {
         outcome += item.value;
       }
     });
